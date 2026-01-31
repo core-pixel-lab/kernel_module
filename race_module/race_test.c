@@ -20,7 +20,7 @@ static int thread_function(void *data)
 
     printk(KERN_INFO "[%s] Start running...\n", thread_name);
 
-    for (i = 0; i < 1000000; i++) {
+    for (i = 0; i < 10000000; i++) {
         // === 危险区域 (Critical Section) ===
         // 也就是“两只手抢面包”的地方
         // 这里的操作不是原子的，很容易被打断
@@ -50,12 +50,12 @@ static int __init race_test_init(void)
 static void __exit race_test_exit(void)
 {
     // 理论上如果每个线程都加了 100万次，结果应该是 200万
-    printk(KERN_INFO "=== Final Result: %d (Expected: 2000000) ===\n", shared_resource);
+    printk(KERN_INFO "=== Final Result: %d (Expected: 20000000) ===\n", shared_resource);
     
-    if (shared_resource != 2000000) {
-        printk(KERN_ERR "!!! RACE CONDITION DETECTED !!! Bug复现成功！\n");
+    if (shared_resource != 20000000) {
+        printk(KERN_ERR "!!! RACE CONDITION DETECTED !!!\n");
     } else {
-        printk(KERN_INFO "Luck? Or fixed? 居然没出错？\n");
+        printk(KERN_INFO "Luck? Or fixed? \n");
     }
 }
 
