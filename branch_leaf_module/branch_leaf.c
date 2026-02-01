@@ -4,8 +4,8 @@
 #include <linux/slab.h> // 用于 kmalloc 和 kfree
 
 MODULE_LICENSE("GPL");
-MODULE_AUTHOR("Gemini Assistant");
-MODULE_DESCRIPTION("One-to-Many Relationship Demo based on Book Image");
+MODULE_AUTHOR("Holden Hsu");
+MODULE_DESCRIPTION("One-to-Many Relationship Demo");
 
 // 对应图片中的 struct leaf
 struct leaf {
